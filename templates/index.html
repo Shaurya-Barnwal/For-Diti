@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Diti</title>
+  <style>
+    .diti-image-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .diti-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Hover pop effect */
+    .diti-image:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #1e1e2f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem 1rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: #2c2c3e;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    #daddy {
+      border-radius: 20px;
+    }
+
+    .memory {
+      margin-bottom: 2rem;
+    }
+
+    .memory h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .memory p {
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .gallery img {
+      height: 300px;
+      /* fixed height */
+      width: auto;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Optional: make it more responsive on smaller screens */
+    @media (max-width: 768px) {
+      .gallery img {
+        height: 150px;
+      }
+    }
+
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    #locked-section input[type="password"] {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+
+    #locked-section button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      margin-left: 0.5rem;
+      cursor: pointer;
+    }
+
+    #hidden-message {
+      padding: 1rem;
+      background: #534c6d;
+      border: 1px solid #48246b;
+      border-radius: 10px;
+    }
+
+    #secretMessage {
+      animation: fadeIn 1s ease-in;
+      background: #373750;
+      border: 2px dashed #ff7e7e;
+      padding: 1.5rem;
+      border-radius: 15px;
+      margin-top: 1rem;
+    }
+
+    #passInput {
+      padding: 0.6rem;
+      border: none;
+      border-radius: 10px;
+      width: 60%;
+      font-size: 1rem;
+    }
+
+    #passFeedback {
+      font-style: italic;
+      color: #ffb6c1;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="diti-image-container">
+      <img class="diti-image" src="{{ url_for('static', filename='diti.jpg') }}" alt="Diti">
+    </div>
+
+    <h1>For Diti</h1>
+    <p>A little space for our big memories</p>
+  </header>
+
+  <section class="memory" id="Chapter0">
+    <h2>The Premise</h2>
+    <p>I started making this when u were sick. We weren’t talking a lot as you were resting and after a really long time
+      I went to sleep without wishing you good night. I had only sent a message asking you to take care of yourself,
+      unread. Sure, you’d gone “MIA” before — as Aayushmaan and I call it, but I always used to wish you good night
+      anyway. However this time around aunty messaged on your behalf informing me that you’re sick. And so I realised
+      she could read my texts and think I’m overly needy and desperate. Despite the fact that I am, I don’t want her to
+      have that impression of me. Anyhow I was just lying on my bed thinking about the perfect gift for your birthday,
+      which I haven’t been able to decide what could be. And so I eventually started thinking about all the memories I
+      have with you. I can be so melodramatic sometimes. But anyhow, it hit me. What if I regave you these memories
+      back? What if you had a way to go to these memories whenever you wanted to? So I got out of my bed. Told my mum I
+      just had a terrific idea and needed to start writing stuff down. And just as I started typing this… guess what
+      popped up?
+    </p>
+    <div>
+      <img id="daddy" src="{{ url_for('static', filename='I will daddy.png') }}" alt="I will daddy">
+
+    </div>
+    <p>
+      There goes my premise...
+    </p>
+  </section>
+
+  <section class="memory" id="Chapter1">
+    <h2>The Daddy Incident</h2>
+    <p class="1">Ahh yes. What better way to start this than to bring up the iconic “daddy” moment. Truth be told. I
+      don’t have the complete details lodged in my mind anymore. You have always been big on nicknames. I personally
+      wasn’t a natural nickname user myself. Hadn’t seen people use them so often and so casually. And to see you call
+      people honey and sweetheart so often made me quite amazed. Soon as we were talking you called me sweetheart, a
+      natural occurrence at this point of our relationship but back then stuff like that used to catch me off guard. And
+      so I made a joke saying - “I swear one of these days my mother is gonna see these texts and get the very wrong
+      idea”. Made you laugh so hard with that one. God do I love it when you laugh. Makes me feel a weird sense of
+      accomplishment when I bring happiness to your face. But yes you doubled down eventually saying "Maybe I’ll use
+      double the nicknames to actually get you in trouble." Never thought that would actually become true. In fact,
+      we’re way past double. But yes to your doubling down I replied - “Whatever floats your boat…. Sweetheart!” One of
+      the most iconic things I’ve ever said to you. Absolutely love it. Made you so flustered with that one. But yes
+      that definitely sparked the chain of nicknames between us.
+    <p class="1">Eventually I think you got comfortable with nicknames a bit too much. That's the thing that has been
+      there between us since forever. You’ve always been ahead of me. At everything. We follow the same path and
+      eventually I do catch up to you. But unfortunately or fortunately you always beat me with the check points. You
+      called me daddy. Yep. Now I get how not knowing its “messed up” meaning may not make using that nickname too bad,
+      however as a person who knows well and good what that word stands for, it creeped the hell out of me. Idk about
+      other people but as a virtuous person (relative term), I couldn’t stand having those kinds of conversations with a
+      girl. Not the person I am and nor wanted to be. And I hadn’t really understood that you’re just truly innocent and
+      didn’t mean to use the word with any bad intention. And due to that lack of understanding there I did a real pro
+      gamer move. I blocked you (sighs while writing). Made you so worried and panicked. I feel so terrible remembering
+      that. God what you must have gone through the following night. All worried thinking if our slightly developing
+      friendship went down the drain just like that. I mean cut to today where I’m literally ready to kill someone if it
+      means I’ll get to talk to you and I don’t even have a topic to talk about. But anyhow as it turns out, our story
+      was meant to go a lot ahead. Truly way ahead than I had imagined. So yes we met in school and I talked to
+      Aayushmaan and then eventually to you. And after a million apologies I forgave you (don’t think I was mad really
+      just being silly). I truly don’t get why I gave you such a hard time starting mein. You know there were so many
+      times I had thought I should maintain my distance with this girl. But well. You are too irresistible. And
+      honestly? I couldn’t be happier for that.</p>
+    </p>
+  </section>
+
+  <section class="memory" id="Chapter2">
+    <h2>You Coming Over</h2>
+    <p class="2">Till this date I have no idea how it happened but it did. And credit where it's due, special mention to
+      Vaibhavi. And of course a lil bit to Arnima as well I suppose. It truly was undoubtedly the most unexpected thing
+      u had ever done for me up to that point. You know recalling that moment also made me realise that I myself haven’t
+      really invited you here. Not really. Because if we truly think about it, Arnima was the one who initiated the idea
+      as a joke and Vaibhavi was the one who persuaded you behind the scenes. So I’d like to change that and invite you
+      over here. That too pretty soon I may add.
+    </p>
+    <p class="2">It was all honestly done in quite some fashion as well. How you reached here and Krish & me made you
+      wait at the gate alone because our hair and skin was too important at the moment (horrible we are), and how I
+      could barely spend any time with you despite me being the one who invited you here officially. Trust me, despite
+      how much you think I was fixated over Arnima that day, I truly was in awe of the fact that Diti actually is here.
+      Couldn’t be with you a lot and when we were free it got too late and we could be together a lot. But yes you being
+      there was quite a big deal for me.
+    </p>
+    <p class="2">Maybe I didn’t truly appreciate the moment back nearly enough back then. But looking back I’m just glad
+      for it to have happened. I don’t know exactly how good friends we were at that point but you coming to a place for
+      a friend to watch a simple performance, definitely up there on the list of things you’ve done for me I wouldn’t
+      think a friend would ever be close enough to me to do. Truly grateful I again am.</p>
+    <div class="gallery">
+      <img src="{{ url_for('static', filename='Nov.jpg') }}" alt="Nov">
+    </div>
+  </section>
+
+  <section class="memory" id="Chapter3">
+    <h2>Happy for you, Not for me </h2>
+    <p class="3">So we fought. And we fought pretty bad actually. It happened because we were both being stupid and
+      silly. In comparison I was probably worse but I’ve profoundly apologized for it multiple times and you’ve said you
+      won’t talk to me anymore if I said sorry for that again. So for that I won’t say sorry here (I really am though).
+    </p>
+    <p class="3">It all started over something silly and I jokingly said no matter how mad you get, in the end you’ll
+      just get desperate and come back to me saying SHAURYAAAAAAA. I mean looking back…. I see no lie here XD. But that
+      probably isn’t the best thing a person who’s mad would like to hear. And so you started ignoring me. Leaving me on
+      read and not replying. Now that's fair honestly you’re allowed to be mad but well you see; I’m immature. And so
+      when you weren’t replying I again did my pro gamer move. Quite the person I am. But well that was only for like a
+      very brief moment and I was annoyed at you not replying and wanted to annoy you back a little. But well when I did
+      unblock you, you were even more mad and angry. Even I would be. And well it was a long conversation from there.
+      And then a real silly thought hit me - is this friendship even worth continuing? I have no idea what came over me
+      honestly. But you see I think what was going on in my mind was this is probably the closest friend I’ve ever had.
+      You were the only person I had ever gotten so close to. Ever. Be it talking normally, sharing thoughts, feelings
+      whatever. I’ve seen you be there for me whenever I’ve needed you and I wouldn’t say I had done the same a lot back
+      but I was definitely willing to and was there whenever the opportunity presented itself (not having lunch together
+      in school doesn’t count you know that's separate). But anyhow I said - “I think we should talk a little less” Now
+      you know it, I know it. I’m basically ending things. I thought this was too much for me mentally. I can’t be
+      connected to a person so much on an emotional level and then have so big fights with them for practically no
+      reason at all. Didn’t seem good for my mental. And I can’t say this enough but I love you I love you and I love
+      you sooo much for whatever you did ahead and not actually giving me what I had asked for. I can’t express this
+      enough. I’m actually tearing up writing this. That night was sure one hell of a night. But not as bad as the next
+      one.
+    </p>
+    <p class="3">When I said what I said, you simply asked a simple question - is that my solution to the problem? Idk
+      why but it did make me reconsider everything. And fortunately I did take everything back. I was still mad at you
+      for the rest of the night but by the morning I was fine. However you weren’t completely sure if I’m back to normal
+      or not. I’ve told you this now and I'm pretty sure I got this from my father but I cool down as quickly as I heat
+      up. Not entirely sure if it's good or bad but that's there. But you wanted to keep talking to me. Talk about
+      anything. Anything you can to make sure that I actually don't start “talking less”. Eventually we started talking
+      about my performance. I started talking about how we could do things the next time. Maybe you and I could even
+      perform together and you would come here again. However you said you might not be able to do that but you’ll be
+      here to support me over a video call for sure. Me being confused asked why’s that? And that’s when you revealed
+      your big plans of going abroad. Honestly it was quite the shocker. Like that genuinely hit me like a bus. I had
+      never imagined and thought of you going away like that. I mean it's not like we would have stayed next door
+      forever. We'd still go to college and very likely in different states at some point. But going abroad makes you
+      practically inaccessible to me. Sure u can the argument of talking over video calls etc and meeting over the
+      holidays, it simply isn’t the same. And that’s probably the first time it actually occurred to me how much you
+      mean to me and how much I want you. You had cried a lot the night before and it was my turn now. I genuinely
+      weeped like a baby after a pretty long time. And after 2 hours of crying, I typed the following message.
+    </p>
+    <div class="gallery">
+      <img src="{{ url_for('static', filename='happy.jpg') }}" alt="happy">
+
+    </div>
+    <p class="3">Not completely accepting things but letting you know my feelings in my own way which I’m happy you
+      understood. And so when you woke up on the third day I had both of us in tiers. But that was probably the first
+      time deep down I ever felt that I loved you. Didn’t accept it just yet. But deep down, I knew.
+    </p>
+  </section>
+
+  <section class="memory" id="Chapter4">
+    <h2>Farewell</h2>
+    <p class="4">
+
+    </p>
+  </section>
+
+  <section class="gallery">
+    <img src="{{ url_for('static', filename='photo1.jpg') }}" alt="Memory 1">
+    <img src="{{ url_for('static', filename='photo2.jpg') }}" alt="Memory 2">
+    <img src="{{ url_for('static', filename='photo3.jpg') }}" alt="Memory 3">
+  </section>
+
+  <section class="gallery">
+    <img src="{{ url_for('static', filename='photo4.jpg') }}" alt="Memory 4">
+    <img src="{{ url_for('static', filename='photo5.jpg') }}" alt="Memory 5">
+    <img src="{{ url_for('static', filename='photo6.jpg') }}" alt="Memory 6">
+  </section>
+
+  <section class="gallery">
+    <img src="{{ url_for('static', filename='photo7.jpg') }}" alt="Memory 7">
+    <img src="{{ url_for('static', filename='photo8.jpg') }}" alt="Memory 8">
+    <img src="{{ url_for('static', filename='photo9.jpg') }}" alt="Memory 9">
+  </section>
+  
+  <section class="gallery">
+    <img src="{{ url_for('static', filename='photo10.jpg') }}" alt="Memory 10">
+    <img src="{{ url_for('static', filename='photo11.jpg') }}" alt="Memory 11">
+    <img src="{{ url_for('static', filename='photo12.jpg') }}" alt="Memory 12">
+    <img src="{{ url_for('static', filename='photo13.jpg') }}" alt="Memory 13">
+  </section>
+
+
+  <section class="memory">
+    <h2>Final Words</h2>
+    <p>Leave her a note, something heartfelt. You know exactly what to say better than anyone.</p>
+  </section>
+
+  <!-- Locked Section Starts Here -->
+  <section class="memory" id="locked-section">
+<form action="/secret" method="post">
+  <h2>Secret Chapter🔒</h2>
+  <p>Enter the passcode to unlock this part of the story:</p>
+  <input type="password" name="password" id="passInput" placeholder="Enter passcode..." required />
+  <button type="submit">Unlock</button>
+</form>
+{% if feedback %}
+<p id="passFeedback" style="margin-top: 1rem; font-style: italic; color: #ffb6c1;">{{ feedback }}</p>
+{% endif %}
+</section>
+  
+  <footer>
+    Made with way too much love by Shaurya ❤️
+  </footer>
+
+  {% if anchor %}
+  <script>
+    window.location.hash = "{{ anchor }}";
+  </script>
+  {% endif %}
+
+</body>
+
+</html>
