@@ -15,6 +15,7 @@ def secret():
         "princess": "Getting warmer... 👀",
         "i love you": "😳 Confessing now?",
         "daddy": "You're killing me here princess🫠",
+        "4587": "Won't be that easy princess🫠",
         "daddy's princess": "Well that you are but sadly not the passcode😔",
         "1309": None
     }
