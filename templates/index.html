@@ -167,6 +167,44 @@
         transform: scale(1);
       }
     }
+
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;--accent:#ef4444;--glass: rgba(255,255,255,0.03)}
+body{font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: linear-gradient(180deg,#071126 0%, #07132a 100%); color:#e6eef6; padding:28px;}
+.container{max-width:900px;margin:0 auto}
+h1{font-size:1.6rem;margin-bottom:12px}
+.memory{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:18px;border-radius:12px;box-shadow: 0 6px 18px rgba(2,6,23,0.6)}
+
+
+/* Styling the accordion (details/summary) */
+details{background:var(--card); border-radius:10px; margin:12px 0; overflow:hidden; box-shadow: 0 4px 12px rgba(2,6,23,0.5);}
+summary{list-style:none; cursor:pointer; padding:14px 18px; display:flex; align-items:center; gap:12px;}
+summary::-webkit-details-marker{display:none}
+
+
+.date{font-weight:600; font-size:0.98rem}
+.meta{margin-left:auto; color:var(--muted); font-size:0.86rem}
+
+
+/* caret icon */
+.caret{width:18px;height:18px;display:inline-block;transform:rotate(0deg);transition:transform .22s ease}
+details[open] .caret{transform:rotate(90deg)}
+
+
+/* details content */
+.entry-body{padding:0 18px 18px 18px; color:#d3e3f5; line-height:1.5; font-size:0.98rem}
+.entry-body p{margin:8px 0}
+
+
+/* small heart marker */
+.hearts{color:var(--accent); font-weight:700}
+
+
+/* make it touch-friendly */
+summary{padding:16px}
+
+
+/* Optional: collapsible animation (simple) */
+.content-inner{overflow:hidden}
   </style>
 </head>
 
@@ -468,80 +506,155 @@
   </section>
 
   <section class="memory" id="diti-diaries">
-  <h2>Diti Diaries</h2>
-  <p>Well I am a very weird creature of habit. I still have difficulty sleeping without wishing you good night. You'll probably call it unhealthy at this point. I wouldn't even disagree with you actually. But       you know what? I'm not much to care🤭
-  </p>
+<p>Well I am a very weird creature of habit. I still have difficulty sleeping without wishing you good night. You'll probably call it unhealthy at this point. I wouldn't even disagree with you actually. But you know what? I'm not much to care🤭</p>
 
-  <div class="diary-entries">
-    <article class="entry">
-      <h3><time datetime="2025-09-10">10th September 2025</time></h3>
-      <p>Well I am not supposed to contact you for a few days. Strict orders given from you. SO ig I'll try following for once. I'll be obedient.</p>
-      <p>Good nini❤️</p>
-      <p>❤️</p>
-    </article>
-    
-    <article class="entry">
-      <h3><time datetime="2025-09-11">11th September 2025</time></h3>
-      <p>I almost burnt down my house today... I turned on the A/C of my room while sitting in the hall🙃 Who cares about wasting electricity (I might be a bit spoilt). I mean my aim was to keep the room cold so         when mum and dad are back they'll find the room already chill and so that would be nice probably. Now as I am sitting on the sofa I smell something weird. I thought it's coming from some place else since         I was sitting near the window. But the smell kept growing. I went to Samarth's room first to check if everything's fine. At this point I had my suspicions about the smell coming from a switch board. I            smelt the switch board of samarth's room but that wasn't the source. And eventually I checked the room whose A/C was on. And I could literally see huge sparks coming from the A/C socket board. It was             wild. The sunmica near the board had started burning. I mean it wasn't sunmica but more of a plastic like substance cause actual sunmica would have caught fire. But yeah I ran to the MCB board and asked           Samarth to tell me when the sparks stop. And one by one I turned off each MCB till they did. Even he was so scared. And then I called these guys. And they're not picking up the phone. Like what even is           the point of having one if you're not gonna pick it up in situations like these. But yeah eventually I called the electrician, he checked and said the wire we had used to extend the socket board wasn't           that good ig cause that is what caught fire. It wasn't as bad thankfully and everything was under control and safe. Definitely a close call though.</p>
-      <p>Good nini sweets❤️</p>
-      <p>❤️</p>
-    </article>
-    
-    <article class="entry">
-      <h3><time datetime="2025-09-12">12th September 2025</time></h3>
-      <p>I just got to know my Nani's gonna be coming here again. And unfortunately it's not gonna be for happy reasons. You remember me telling you that I'm taking them to the doctor a while back? Well it was for her knees. She'd randomly fall or slip while walking. I mean she had an injury 6 years ago where she fell into a hole or something cause she couldn't see properly. But recently this has been happening. So that didn't get better yet and doctors at Ranchi said she'll have to get an operation. They decided if that's the case then might as well get it done in Delhi. So yeah we'll be admitting her in Apollo most probably. We have good faith there and things have been good everytime we've had to go there for something. So fingers crossed everything should be ok again this time. But here's the interesting part: I'll have to stay with her in the hospital alone as the attendent. Papa won't be able to stay there the whole time since it's hard for him to take too long leaves from office. And mum would stay but with our house going through reparing and all right now and Samarth having his exams, it's not possible for her to spend the whole day there either. So yeah this is something new I'll be taking on. Hopefully I get to learn a thing or two from this.</p>
-      <p>Good nini princess (I can still call you that right? I mean with you being mad and all idek how you're feeling about me these days. I just hope you've forgiven me by the time you're reading this)❤️</p>
-      <p>❤️</p>
-    </article>
-    
-    <article class="entry">
-      <h3><time datetime="2025-09-13">13th September 2025</time></h3>
-      <p>Not much to say today. Really miss you though. I don't even know how many days you're gonna take which makes this so much harder than it should be. I just hope the few days actually end up only being a few.</p>
-      <p>Good nini❤️</p>
-      <p>❤️</p>
-    </article>
-    
-    <article class="entry">
-      <h3><time datetime="2025-09-14">14th September 2025</time></h3>
-      <p>Had a fun day today. Went to Pragyanshu's place for practice. We ended up choosing two songs for the moment. I still hope you could come and perform with me. He was asking about you too. I don't know Diti but the opportunity of being on stage and singing with you is too exciting and beautiful for me to just let go. Like imagine me and you up there, holding the mics and singing, you glowing as usual and looking your prettiest as I try and keep up. It's really too exciting. Like I can't help but start kicking my feet imagining that. That's literally all I pray for these days. God I just wish it comes true. Please. I also finished the first prototype web page I've been working on these days. That's how I got the idea to write here too. It's actually pretty interesting too. I'll explain.</p>
-      <p>There's a thing called API. I don't know how much you know bout this but it's basically a useable database or resource that companies let you use to make your own personal projects. Spotify has one too. It basically let's you access the data about all the songs that the spotify's live library has. So you'll get access to info like the song's artist, popularity, its tempo, its energy, how groovy it is or dancibility in simpler terms. Now not all of the data is usefull for the general public but for music enthusiasts like you and me, or anyone who's deeply involved with music, these stats can help you in a lot of ways. But this data doesn't come up normally on spotify either. You could look things up one by one manually on google but that's very tedious and quite frankly boring. You could also use chatGPT. But by default chatGPT doesn't have the capibility to access spotify's API directly and so it can't give you the most useful insights and data. So my idea was what if I integrate chatGPT's API (basically it's inteligence in a form that I can reshape and reprograme to work according to my needs) in a way that it can access spotify's API directly to give me the the trends and analysis I have been looking for. Now this sounds really cool on paper. But actually making this is pretty tough. So for now I made something simpler. I call it MAST - Musical Anaysis of Statistics and Trends (Feel free to comment on the name btw).I used a csv file (a file that has a limited data about a limited number of songs, around 200k) and use python codes to use that data to produce graphs that help me understand it more fluently. Also say if I like a song. I can look up the song on my web page and it'll show me all the songs that are similar to it in terms of energy, dancibility or tempo. It can also give me comparison of that data of how when u increase the energy of the songs, the dancibility increases and etc. I can also look up an artist, say taylor swift up on the site. It provides me all of her songs and then presents me a bar graph showing how many of her songs are pop, country, rap, dance, or other genres and help me understand her kind of music better. It also gives me te average tempo of her songs in each category, gives me how high or low her songs are in energy and a few other bits of information. Now say if I were making a song that had an energy level of 0.6 or a scale of 0 to 1, i could set the levels to that and I could also set the tempo of the song. And then the web page presents me with all songs that follow my set criteria and so I can listen to those songs for further ideas and inspiration. Its a lot cooler when you try it yourself like I can't wait to show you. Now the version with the limited database works pretty well as of now. Now I'll start working on the spotify version and take it to the next step. If everything goes right this could be pretty big.</p>
-      <p>Good nini sweetheart. Miss you a bit❤️</p>
-      <p>❤️</p>
-    </article>
-    <article class="entry">
-      <h3><time datetime="2025-09-15">15th September 2025</time></h3>
-      <p>Ok so we went to the hospital with her and apparently Nani's ACL tissue along with another ligament has broken. They can fix it with the operation it's not biggie. Now I came back with her in the morning and they said they'll admit her in the evening. Mum and Nani went back there in the evening and they're admitted there right now. I'll be going tomorrow morning and take mum's place and stay there for the day. Gonna be interesting for sure. I'll also be preparing Samarth's lunch tomorrow. So that should also be interesting. Let's see how everything goes. Wish me luck.</p>
-      <p>Good nini and miss you as always❤️</p>
-      <p>❤️</p>
-    </article>
-    <article class="entry">
-      <h3><time datetime="2025-09-16">16th September 2025</time></h3>
-      <p>Boy what a day. I got up only after getting 3 hours of sleep today. Made pasta for my breakfast and Samarth's lunch. And then left for the hospital so I could switch with mum. I took the taxi but I was constantly sleepy. Like throughout. And the only thing keeping me up was all the serial killing shows I've watched where the person ends up getting kidnapped in a taxi. I had no intensions of becoming a victim. And there was so much jam on the road too. Literal hell. Anyhoo I got there and sent mum back home. Was with my nani for like 2 hours before she got shifted to the OT. And then it was all me in the bedroom area. And I have to say I had more fun than I thought. I tried to sleep but the attendent bed wasn't all that comfortable. So I put on Dexter's season 1 that I had downloaded before I left home. Its a goated series about serial killing you should check it out sometime. And then idk if you've ever been to the Apollo in Delhi but there's like all sorts of stuff on the ground floor, be it Haldiram or Barista. So I'd like watch the show for about an hour, go down because I'd have to pee and the only washroom I knew of was on the ground floor and I was too shy to ask where's the other. Then I'd eat legit whatever I want. So much variety too. So yeah I experimented a lot. Eat, drink, watch, pee and repeat. That's gotta be peak life. I tried Americano for the first time ever. That too iced. I legit thought of your coffee making mishap that you told me about. And let me tell you if you already didn't know this, though I'm sure you do, if you ever have to choose between drinking an americano or your own piss (like Bear freaking Grills or something), choose the later. Probably will taste better. Eventually after 4 hours I got a call from the doctor. The surgury was a success and they'll be keeping her for observation for a while. After a dozen calls to all the family members I was back to my routine soon. Eventually she came back, barely concious and all tired. I felt so bad. I was helping her with water and all till mum and dad arrived. Eventually they did and mum took my place and me, Samarth and dad left back for home. And that was the day. OR SO WE THOUGHT. 25 minutes after leaving from the hopital, only 15 mins away from home, dad asks- did you take the keys from mum? Well you can imagine how everything else played out. We took a round trip back. That too while being on taxi btw. Oh yes I probably didn't mention this either. It must be out bad time or something these days but my dad was in a car accident recently. Remember I told you bout the dream? 2 days after that. Tells you something doesn't it. I mean it wasn't that bad. He was perfectly fine and safe. The car though... Long story short it's at the service centre. Gonna be gone for a bit. But yeah we went back, took the keys and now we're back home and I'm writing this. I wanna study now but I'm getting a terrible headache so I'll probably go sleep now. On a side note I did miss you a little extra today. I mean it would have been so cool if I had you to talk to while I was there. Could have been fun. I was about to type some another time perhaps but then I remembered I was at a freaking hospital cause someone was admitted... Yea it's probably best to not have a next time in this case.</p>
-      <p>Good nini pumpkin❤️</p>
-      <p>❤️</p>
-    </article>
-    <article class="entry">
-      <h3><time datetime="2025-09-17">17th September 2025</time></h3>
-      <p>I've realised everytime I come back on this web page there's an instant dopamine release. Feel instantly good after seeing all the pictures. Making this might be one of the best ideas I've ever had. Anyway, Nani's back! Woohoooo. She still can't walk for a while but it's ok she'll get better soon everything seems good. You know in the morning when mum came back and dad took her place at the hospital, I don't know what he told mum when he got there but she belived that even though papa left the house at 10:30 am, I went to take the bath after he left. Which is totally not true as I was done with all that way before he left. And so when mum comes back she starts randomly screaming at me for irresponsibility and yata yata. She also saw kitchen slightly not clean cause I had made pizza before. I mean I cleaned it perfectly yesterday cause there was an actual mess after making the pasta. Today it wasn't that much. I kept everything where it should be but left a lil bit. The thing is I clean better when I made the food after being told not to as I'd end up making a mess, which was the case yesterday. Today mum asked me to make something herself and that brought back the carelessness ig. Gotta work on it I suppose. Anyway when dad came back I asked him about what he said, and he's like totally agreeing with me and saying he didn't say anything. Like these guys need to figure their shit out bro. Everyone's terrible with communication. Even last time with me coming back with you, he thought I'll be staying at your place and got mad and also made her mad. Whatever. I was really close to texting you today evening. Like VERY. But I really don't wanna disobey you again. I couldn't even send you the text without starting it off with a sorry for texting you. I realise that if I'm saying sorry for texting you then it means it's something I believe I shouldn't do. And if that's the case then why am I doing it in the first place just to apologize after. So i didn't. But anyhow I don't want my thoughts that were meant to be shared with you to fade away either. So ig pasting that unsent message here would be a good common place.</p>
-      <p>Hey
+<div class="diary-entries">
+
+<!-- Entry (wrap article inside details) -->
+<details>
+<summary>
+<span class="date">10th September 2025</span>
+<span class="meta">Click to open</span>
+<span class="caret">▶</span>
+</summary>
+<div class="entry-body">
+<article class="entry">
+<p>Well I am not supposed to contact you for a few days. Strict orders given from you. SO ig I'll try following for once. I'll be obedient.</p>
+<p>Good nini❤️</p>
+<p class="hearts">❤️</p>
+</article>
+</div>
+</details>
+
+<details>
+<summary>
+<span class="date">11th September 2025</span>
+<span class="meta">Click to open</span>
+<span class="caret">▶</span>
+</summary>
+<div class="entry-body">
+<article class="entry">
+<p>I almost burnt down my house today... I turned on the A/C of my room while sitting in the hall🙃 Who cares about wasting electricity (I might be a bit spoilt). I mean my aim was to keep the room cold so when mum and dad are back they'll find the room already chill and so that would be nice probably. Now as I am sitting on the sofa I smell something weird. I thought it's coming from some place else since I was sitting near the window. But the smell kept growing. I went to Samarth's room first to check if everything's fine. At this point I had my suspicions about the smell coming from a switch board. I smelt the switch board of samarth's room but that wasn't the source. And eventually I checked the room whose A/C was on. And I could literally see huge sparks coming from the A/C socket board. It was wild. The sunmica near the board had started burning. I mean it wasn't sunmica but more of a plastic like substance cause actual sunmica would have caught fire. But yeah I ran to the MCB board and asked Samarth to tell me when the sparks stop. And one by one I turned off each MCB till they did. Even he was so scared. And then I called these guys. And they're not picking up the phone. Like what even is the point of having one if you're not gonna pick it up in situations like these. But yeah eventually I called the electrician, he checked and said the wire we had used to extend the socket board wasn't that good ig cause that is what caught fire. It wasn't as bad thankfully and everything was under control and safe. Definitely a close call though.</p>
+<p>Good nini sweets❤️</p>
+<p class="hearts">❤️</p>
+</article>
+</div>
+</details>
+
+<!-- More details entries created the same way... for brevity only a couple shown here. -->
+
+<details>
+<summary>
+<span class="date">12th September 2025</span>
+<span class="meta">Click to open</span>
+<span class="caret">▶</span>
+</summary>
+<div class="entry-body">
+<article class="entry">
+<p>I just got to know my Nani's gonna be coming here again. And unfortunately it's not gonna be for happy reasons. You remember me telling you that I'm taking them to the doctor a while back? Well it was for her knees. She'd randomly fall or slip while walking. I mean she had an injury 6 years ago where she fell into a hole or something cause she couldn't see properly. But recently this has been happening. So that didn't get better yet and doctors at Ranchi said she'll have to get an operation. They decided if that's the case then might as well get it done in Delhi. So yeah we'll be admitting her in Apollo most probably. We have good faith there and things have been good everytime we've had to go there for something. So fingers crossed everything should be ok again this time. But here's the interesting part: I'll have to stay with her in the hospital alone as the attendent. Papa won't be able to stay there the whole time since it's hard for him to take too long leaves from office. And mum would stay but with our house going through reparing and all right now and Samarth having his exams, it's not possible for her to spend the whole day there either. So yeah this is something new I'll be taking on. Hopefully I get to learn a thing or two from this.</p>
+<p>Good nini princess (I can still call you that right? I mean with you being mad and all idek how you're feeling about me these days. I just hope you've forgiven me by the time you're reading this)❤️</p>
+<p class="hearts">❤️</p>
+</article>
+</div>
+</details>
+  
+<details>
+<summary>
+<span class="date">13th September 2025</span>
+<span class="meta">Click to open</span>
+<span class="caret">▶</span>
+</summary>
+<div class="entry-body">
+<article class="entry">
+<p>Not much to say today. Really miss you though. I don't even know how many days you're gonna take which makes this so much harder than it should be. I just hope the few days actually end up only being a few.</p>
+<p>Good nini❤️</p>
+<p class="hearts">❤️</p>
+</article>
+</div>
+</details>
+<details>
+<summary>
+<span class="date">14th September 2025</span>
+<span class="meta">Click to open</span>
+<span class="caret">▶</span>
+</summary>
+<div class="entry-body">
+<article class="entry">
+<p>Had a fun day today. Went to Pragyanshu's place for practice. We ended up choosing two songs for the moment. I still hope you could come and perform with me. He was asking about you too. I don't know Diti but the opportunity of being on stage and singing with you is too exciting and beautiful for me to just let go. Like imagine me and you up there, holding the mics and singing, you glowing as usual and looking your prettiest as I try and keep up. It's really too exciting. Like I can't help but start kicking my feet imagining that. That's literally all I pray for these days. God I just wish it comes true. Please. I also finished the first prototype web page I've been working on these days. That's how I got the idea to write here too. It's actually pretty interesting too. I'll explain.</p>
+<p>There's a thing called API. I don't know how much you know bout this but it's basically a useable database or resource that companies let you use to make your own personal projects. Spotify has one too. It basically let's you access the data about all the songs that the spotify's live library has. So you'll get access to info like the song's artist, popularity, its tempo, its energy, how groovy it is or dancibility in simpler terms. Now not all of the data is useful for the general public but for music enthusiasts like you and me, or anyone who's deeply involved with music, these stats can help you in a lot of ways. But this data doesn't come up normally on spotify either. You could look things up one by one manually on google but that's very tedious and quite frankly boring. You could also use chatGPT. But by default chatGPT doesn't have the capability to access spotify's API directly and so it can't give you the most useful insights and data. So my idea was what if I integrate chatGPT's API (basically it's intelligence in a form that I can reshape and reprograme to work according to my needs) in a way that it can access spotify's API directly to give me the the trends and analysis I have been looking for. Now this sounds really cool on paper. But actually making this is pretty tough. So for now I made something simpler. I call it MAST - Musical Anaysis of Statistics and Trends (Feel free to comment on the name btw).I used a csv file (a file that has a limited data about a limited number of songs, around 200k) and use python codes to use that data to produce graphs that help me understand it more fluently. Also say if I like a song. I can look up the song on my web page and it'll show me all the songs that are similar to it in terms of energy, dancibility or tempo. It can also give me comparison of that data of how when u increase the energy of the songs, the dancibility increases and etc. I can also look up an artist, say taylor swift up on the site. It provides me all of her songs and then presents me a bar graph showing how many of her songs are pop, country, rap, dance, or other genres and help me understand her kind of music better. It also gives me te average tempo of her songs in each category, gives me how high or low her songs are in energy and a few other bits of information. Now say if I were making a song that had an energy level of 0.6 or a scale of 0 to 1, i could set the levels to that and I could also set the tempo of the song. And then the web page presents me with all songs that follow my set criteria and so I can listen to those songs for further ideas and inspiration. Its a lot cooler when you try it yourself like I can't wait to show you. Now the version with the limited database works pretty well as of now. Now I'll start working on the spotify version and take it to the next step. If everything goes right this could be pretty big.</p>
+<p>Good nini sweetheart. Miss you a bit❤️</p>
+<p class="hearts">❤️</p>
+</article>
+</div>
+</details>
+<details>
+<summary>
+<span class="date">15th September 2025</span>
+<span class="meta">Click to open</span>
+<span class="caret">▶</span>
+</summary>
+<div class="entry-body">
+<article class="entry">
+<p>Ok so we went to the hospital with her and apparently Nani's ACL tissue along with another ligament has broken. They can fix it with the operation it's not biggie. Now I came back with her in the morning and they said they'll admit her in the evening. Mum and Nani went back there in the evening and they're admitted there right now. I'll be going tomorrow morning and take mum's place and stay there for the day. Gonna be interesting for sure. I'll also be preparing Samarth's lunch tomorrow. So that should also be interesting. Let's see how everything goes. Wish me luck.</p>
+<p>Good nini and miss you as always❤️</p>
+<p class="hearts">❤️</p>
+</article>
+</div>
+</details>
+<details>
+<summary>
+<span class="date">16th September 2025</span>
+<span class="meta">Click to open</span>
+<span class="caret">▶</span>
+</summary>
+<div class="entry-body">
+<article class="entry">
+<p>Boy what a day. I got up only after getting 3 hours of sleep today. Made pasta for my breakfast and Samarth's lunch. And then left for the hospital so I could switch with mum. I took the taxi but I was constantly sleepy. Like throughout. And the only thing keeping me up was all the serial killing shows I've watched where the person ends up getting kidnapped in a taxi. I had no intention of becoming a victim. And there was so much jam on the road too. Literal hell. Anyhoo I got there and sent mum back home. Was with my nani for like 2 hours before she got shifted to the OT. And then it was all me in the bedroom area. And I have to say I had more fun than I thought. I tried to sleep but the attendant bed wasn't all that comfortable. So I put on Dexter's season 1 that I had downloaded before I left home. It's a goated series about serial killing. You should check it out sometime. And then idk if you've ever been to the Apollo in Delhi but there's like all sorts of stuff on the ground floor, be it Haldiram or Barista. So I'd like watch the show for about an hour, go down because I'd have to pee and the only washroom I knew of was on the ground floor and I was too shy to ask where's the other. Then I'd eat legit whatever I want. So much variety too. So yeah I experimented a lot. Eat, drink, watch, pee and repeat. That's gotta be peak life. I tried Americano for the first time ever. That too iced. I legit thought of your coffee making mishap that you told me about. And let me tell you if you already didn't know this, though I'm sure you do, if you ever have to choose between drinking an americano or your own piss (like Bear freaking Grills or something), choose the later. Probably will taste better. Eventually after 4 hours I got a call from the doctor. The surgery was a success and they'll be keeping her for observation for a while. After a dozen calls to all the family members I was back to my routine soon. Eventually she came back, barely conscious and all tired. I felt so bad. I was helping her with water and all till mum and dad arrived. Eventually they did and mum took my place and me, Samarth and dad left back for home. And that was the day. OR SO WE THOUGHT. 25 minutes after leaving from the hospital, only 15 mins away from home, dad asks- did you take the keys from mum? Well you can imagine how everything else played out. We took a round trip back. That too while being in a taxi btw. Oh yes I probably didn't mention this either. It must be a bad time or something these days but my dad was in a car accident recently. Remember I told you about the dream? 2 days after that. Tells you something doesn't it. I mean it wasn't that bad. He was perfectly fine and safe. The car though... Long story short it's at the service centre. Gonna be gone for a bit. But yeah we went back, took the keys and now we're back home and I'm writing this. I wanna study now but I'm getting a terrible headache so I'll probably go to sleep now. On a side note I did miss you a little extra today. I mean it would have been so cool if I had you to talk to while I was there. Could have been fun. I was about to type some another time perhaps but then I remembered I was at a freaking hospital cause someone was admitted... Yea it's probably best to not have a next time in this case.</p>
+<p>Good nini pumpkin❤️</p>
+<p class="hearts">❤️</p>
+</article>
+</div>
+</details>
+<details>
+<summary>
+<span class="date">17th September 2025</span>
+<span class="meta">Click to open</span>
+<span class="caret">▶</span>
+</summary>
+<div class="entry-body">
+<article class="entry">
+<p>I've realised everytime I come back on this web page there's an instant dopamine release. Feel instantly good after seeing all the pictures. Making this might be one of the best ideas I've ever had. Anyway, Nani's back! Woohoooo. She still can't walk for a while but it's ok she'll get better soon everything seems good. You know in the morning when mum came back and dad took her place at the hospital, I don't know what he told mum when he got there but she belived that even though papa left the house at 10:30 am, I went to take the bath after he left. Which is totally not true as I was done with all that way before he left. And so when mum comes back she starts randomly screaming at me for irresponsibility and yata yata. She also saw kitchen slightly not clean cause I had made pizza before. I mean I cleaned it perfectly yesterday cause there was an actual mess after making the pasta. Today it wasn't that much. I kept everything where it should be but left a lil bit. The thing is I clean better when I made the food after being told not to as I'd end up making a mess, which was the case yesterday. Today mum asked me to make something herself and that brought back the carelessness ig. Gotta work on it I suppose. Anyway when dad came back I asked him about what he said, and he's like totally agreeing with me and saying he didn't say anything. Like these guys need to figure their shit out bro. Everyone's terrible with communication. Even last time with me coming back with you, he thought I'll be staying at your place and got mad and also made her mad. Whatever. I was really close to texting you today evening. Like VERY. But I really don't wanna disobey you again. I couldn't even send you the text without starting it off with a sorry for texting you. I realise that if I'm saying sorry for texting you then it means it's something I believe I shouldn't do. And if that's the case then why am I doing it in the first place just to apologize after. So i didn't. But anyhow I don't want my thoughts that were meant to be shared with you to fade away either. So ig pasting that unsent message here would be a good common place.</p>
+<p>Hey <br>
 I was working on my essay again and I ended up adding a line about
 you just now (don't bother overthinking or asking about it as it wasn't
 too crazy or anything and i'll let you know at some point). Just felt like
 messaging you after that. I don't expect a reply or anything but yeah I
-do miss you a bit though. just a tinzy bit. anyhow back to work</p>
-      <p>Good nini lovebug❤️</p>
-      <p>❤️</p>
-    </article>
-    <article class="entry">
-      <h3><time datetime="2025-09-18">18th September 2025</time></h3>
-      <p>Another day another entry. I honestly didn't think I'll have to still continue writing here. I was expecting you to have messaged me by now. Honestly I would just hope that at least my writing skills improve from doing this. Because quite frankly I'm having scary thoughts about you. Like bad ones. Have I lost you? Did I finally make a mistake big enough that'll make me the guy who goes down as the next best friend who messed it up? Did I finally get to you? I mean honestly I don't believe you and me are gonna end that easily. This website is proof of that. I have made too many memories with you, have had too many experiences with you for it to be over just like that. Every time I come here I see all the stuff, all the long conversations we've had, all the late nights we pulled, there has been a lot. But you know after 8 days of no contact with you (which is the longest we've gone without talking since over one and a half year and I am afraid it's only gonna get longer), I finally feel the true fear of not having any of that ever again. First I lost the tradition of wishing you morning and night. Then just the next day onwards I couldn't even talk to you during the day. And now well we might be reaching new heights here. I mean you've been on me for acting so weird and impulsive. But here's the thing. I am not as impulsive as I seem to be. I don't just act off of a single instance. I have been feeling a slight growing distance between us ever since the improvement results came out. We have talked via a freaking spotify playlist. That's the shit we were pulling off at some point. And compare that to now. It gets to me Diti. And I can't even discuss it with you properly. I can just never get the timing right. And it just stays there with me. You told me a while ago that you've been feeling that I seem changed and that doesn't feel good to you. But you can not deny that you've changed too. Way more than I have. How do you think that sits with me? Idk maybe end of the day I am childish and I just need you to sit with me and make me realise that. And I suppose that is exactly what's in your head too. And so you're choosing for the perfect time to do that, when you're ready and available to do so. I gotta say if that's the case then I'm not sure if I like your methods. But I can't really disagree with them either. Feels weird typing this now all of a sudden but I love you. I just hope you do too.</p>
-      <p></p> 
-      <p>Good nini❤️</p>
-      <p>❤️</p>
-    </article>
+do miss you a bit though. just a tinzy bit. anyhow back to work
+</p>
+<p>Good nini lovebug❤️</p>
+<p class="hearts">❤️</p>
+</article>
+</div>
+</details>
+<details>
+<summary>
+<span class="date">18th September 2025</span>
+<span class="meta">Click to open</span>
+<span class="caret">▶</span>
+</summary>
+<div class="entry-body">
+<article class="entry">
+<p>Another day another entry. I honestly didn't think I'll have to still continue writing here. I was expecting you to have messaged me by now. Honestly I would just hope that at least my writing skills improve from doing this. Because quite frankly I'm having scary thoughts about you. Like bad ones. Have I lost you? Did I finally make a mistake big enough that'll make me the guy who goes down as the next best friend who messed it up? Did I finally get to you? I mean honestly I don't believe you and me are gonna end that easily. This website is proof of that. I have made too many memories with you, have had too many experiences with you for it to be over just like that. Every time I come here I see all the stuff, all the long conversations we've had, all the late nights we pulled, there has been a lot. But you know after 8 days of no contact with you (which is the longest we've gone without talking since over one and a half year and I am afraid it's only gonna get longer), I finally feel the true fear of not having any of that ever again. First I lost the tradition of wishing you morning and night. Then just the next day onwards I couldn't even talk to you during the day. And now well we might be reaching new heights here. I mean you've been on me for acting so weird and impulsive. But here's the thing. I am not as impulsive as I seem to be. I don't just act off of a single instance. I have been feeling a slight growing distance between us ever since the improvement results came out. We have talked via a freaking spotify playlist. That's the shit we were pulling off at some point. And compare that to now. It gets to me Diti. And I can't even discuss it with you properly. I can just never get the timing right. And it just stays there with me. You told me a while ago that you've been feeling that I seem changed and that doesn't feel good to you. But you can not deny that you've changed too. Way more than I have. How do you think that sits with me? Idk maybe end of the day I am childish and I just need you to sit with me and make me realise that. And I suppose that is exactly what's in your head too. And so you're choosing for the perfect time to do that, when you're ready and available to do so. I gotta say if that's the case then I'm not sure if I like your methods. But I can't really disagree with them either. Feels weird typing this now all of a sudden but I love you. I just hope you do too.</p>
+<p>Good nini❤️</p>
+<p class="hearts">❤️</p>
+</article>
+</div>
+</details>
 
-  </div>
+</div>
 </section>
+
+
 
   
   <footer>
