@@ -6,40 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>For Diti</title>
  <style>
-  /* ---- Theme variables (tweak these for different red tones) ---- */
   :root{
-    --bg: #0f1216;            /* page background */
-    --card: #1c1112;          /* card / details background */
-    --muted: #bdb6b6;         /* secondary text */
-    --accent: #e24b4b;        /* primary red-ish accent (professional) */
-    --glass: rgba(255,255,255,0.02);
-    --shadow: rgba(2,6,23,0.6);
-    --radius: 12px;
-    --max-width: 980px;
+    --bg:#0f1724;
+    --card:#0b1220;
+    --muted:#9aa4b2;
+    --accent:#ef4444;
+    --glass: rgba(255,255,255,0.03);
   }
 
-  /* ---- Base / page ---- */
-  html,body{height:100%}
-  body{
-    margin: 0;
-    padding: 28px;
-    font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background: linear-gradient(180deg,#071116 0%, #071220 100%);
-    color: #f4f6f8;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    overflow-x: hidden;
-  }
-
-  .container{
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 16px;
-  }
-
-  h1{ font-size: 1.6rem; margin-bottom: 12px; }
-
-  /* ---- Header / avatar ---- */
+  /* Avatar */
   .diti-image-container {
     display: flex;
     justify-content: center;
@@ -52,130 +27,174 @@
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.45);
-    transition: transform 0.28s ease, box-shadow 0.28s ease;
-    border: 3px solid rgba(226,75,75,0.08);
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .diti-image:hover,
-  .diti-image:focus{
-    transform: translateY(-4px) scale(1.06);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.55);
+  /* Hover pop effect */
+  .diti-image:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   }
 
-  header{ text-align:center; padding: 3rem 1rem 1rem; }
-  header h1{ font-size: 2.6rem; margin-bottom: 0.25rem; }
-  header p{ font-size: 1.05rem; color: var(--muted); margin-top: 0; }
+  /* Page basics */
+  body {
+    margin: 0;
+    padding: 28px;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(180deg,#071126 0%, #07132a 100%);
+    color: #e6eef6;
+    overflow-x: hidden;
+  }
 
-  /* ---- Sections / cards ---- */
-  section{
-    max-width: var(--max-width);
-    margin: 1.5rem auto;
-    padding: 1.6rem;
+  header {
+    text-align: center;
+    padding: 3rem 1rem 1rem;
+  }
+
+  header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  header p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+  }
+
+  /* Main section/card */
+  section {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: #2c2c3e;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  #daddy {
+    border-radius: 20px;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+  }
+
+  /* Memory card */
+  .memory {
+    margin-bottom: 2rem;
     background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border-radius: var(--radius);
-    box-shadow: 0 8px 26px var(--shadow);
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(2,6,23,0.6);
   }
 
-  #daddy{ border-radius: var(--radius); }
+  .memory h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
 
-  .memory{ margin-bottom: 1.6rem; background: transparent; padding: 0; }
+  .memory p {
+    line-height: 1.6;
+    opacity: 0.9;
+  }
 
-  .memory h2{ font-size: 1.35rem; margin: 0 0 .5rem 0; color: #fff; }
-  .memory p{ line-height: 1.6; color: #e6edf3; opacity: .95; margin: 0 0 .8rem 0; }
-
-  /* ---- Gallery ---- */
-  .gallery{
-    display:flex;
-    flex-wrap:wrap;
+  /* Gallery */
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
-    justify-content:center;
-    margin-top: 0.75rem;
+    justify-content: center;
   }
 
-  .gallery img{
-    height: 300px;
+  .gallery img {
+    height: 300px; /* fixed height */
     width: auto;
     object-fit: cover;
     border-radius: 10px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
-    transition: transform .18s ease, filter .18s ease;
-    border: 1px solid rgba(255,255,255,0.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
   }
 
-  .gallery img:hover,
-  .gallery img:focus{
-    transform: translateY(-6px) scale(1.03);
-    filter: saturate(1.03);
+  .gallery img:hover {
+    transform: scale(1.05);
   }
 
-  @media (max-width: 768px){
-    .gallery img{ height: 150px; }
-    header h1{ font-size: 1.8rem; }
+  @media (max-width: 768px) {
+    .gallery img {
+      height: 150px;
+    }
   }
 
-  /* ---- Locked / secret section controls ---- */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+
+  /* Locked / secret UI */
   #locked-section input[type="password"],
-  #passInput{
+  #passInput {
     padding: 0.6rem;
     font-size: 1rem;
-    border-radius: 10px;
     border: none;
+    border-radius: 10px;
     width: 60%;
-    background: rgba(255,255,255,0.03);
-    color: #fff;
-    outline: none;
-    box-shadow: inset 0 1px 0 rgba(0,0,0,0.25);
   }
 
-  #locked-section button{
-    padding: 0.55rem 1rem;
+  #locked-section button {
+    padding: 0.5rem 1rem;
     font-size: 1rem;
     margin-left: 0.5rem;
     cursor: pointer;
-    border-radius: 10px;
-    border: none;
-    background: linear-gradient(180deg, var(--accent), #c93737);
-    color: #fff;
-    box-shadow: 0 6px 16px rgba(226,75,75,0.12);
   }
 
-  #passFeedback{ font-style: italic; color: #ffb6b6; margin-top: .45rem; }
-
-  #hidden-message{
+  #hidden-message {
     padding: 1rem;
-    background: #2f2730;
-    border: 1px solid rgba(226,75,75,0.08);
+    background: #534c6d;
+    border: 1px solid #48246b;
     border-radius: 10px;
   }
 
-  #secretMessage{
-    animation: fadeIn 320ms ease-in;
-    background: rgba(55,55,80,0.55);
-    border: 2px dashed rgba(226,75,75,0.14);
-    padding: 1.25rem;
-    border-radius: 12px;
+  #secretMessage {
+    animation: fadeIn 1s ease-in;
+    background: #373750;
+    border: 2px dashed #ff7e7e;
+    padding: 1.5rem;
+    border-radius: 15px;
     margin-top: 1rem;
-    color: #fff;
+  }
+
+  #passFeedback {
+    font-style: italic;
+    color: #ffb6c1;
   }
 
   @keyframes fadeIn {
-    from{ opacity: 0; transform: scale(.98); }
-    to{ opacity: 1; transform: scale(1); }
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
-  /* ---- Accordion (details/summary) ----
-     We hide the native marker and create a clean row layout.
-     The .entry-body is transitioned using max-height to simulate animation.
-  -------------------------------------------------------------------- */
+  /* Styling the accordion (details/summary) */
   details{
     background: var(--card);
     border-radius: 10px;
     margin: 12px 0;
     overflow: hidden;
-    box-shadow: 0 6px 18px rgba(2,6,23,0.45);
-    border: 1px solid rgba(255,255,255,0.02);
+    box-shadow: 0 4px 12px rgba(2,6,23,0.5);
   }
 
   summary{
@@ -185,84 +204,54 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    user-select: none;
-    outline: none;
   }
 
-  /* remove default marker in WebKit and other browsers */
-  summary::-webkit-details-marker{ display:none; }
-  summary::marker{ display:none; }
+  summary::-webkit-details-marker{ display: none; }
 
-  .date{ font-weight: 600; font-size: 0.98rem; color: #fff; }
-  .meta{ margin-left:auto; color: var(--muted); font-size: 0.86rem; }
+  .date{
+    font-weight: 600;
+    font-size: 0.98rem;
+  }
 
-  /* caret */
-  .caret{
-    width: 18px;
-    height: 18px;
-    display: inline-block;
-    transform: rotate(0deg);
-    transition: transform .22s ease, color .18s ease;
+  .meta{
+    margin-left:auto;
     color: var(--muted);
-    font-weight:700;
+    font-size: 0.86rem;
+  }
+
+  /* caret icon */
+  .caret{
+    width:18px;
+    height:18px;
+    display:inline-block;
+    transform:rotate(0deg);
+    transition:transform .22s ease;
   }
 
   details[open] .caret{
-    transform: rotate(90deg);
-    color: var(--accent);
+    transform:rotate(90deg);
   }
 
-  /* entry body animation: start collapsed with max-height:0 */
+  /* details content */
   .entry-body{
-    padding: 0 18px;
-    color: #d3e3f5;
-    line-height: 1.55;
-    font-size: 0.98rem;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height .32s ease, padding .18s ease;
+    padding:0 18px 18px 18px;
+    color:#d3e3f5;
+    line-height:1.5;
+    font-size:0.98rem;
   }
 
-  /* when open, allow room — make max-height large enough for expected content */
-  details[open] .entry-body{
-    padding: 12px 18px 18px 18px;
-    max-height: 1200px; /* large enough for long entries */
-  }
+  .entry-body p{ margin:8px 0; }
 
-  .entry-body p{ margin: 8px 0; color: #e6eef6; }
+  /* small heart marker */
+  .hearts{ color:var(--accent); font-weight:700; }
 
-  .hearts{ color: var(--accent); font-weight: 700; }
+  /* make it touch-friendly */
+  summary{ padding:16px; }
 
-  /* Make summary keyboard-friendly and visible when focused */
-  summary:focus{ box-shadow: 0 0 0 4px rgba(226,75,75,0.12); border-radius: 8px; }
-
-  /* touch friendly */
-  summary{ padding: 16px; }
-
-  /* ---- Footer ---- */
-  footer{
-    text-align:center;
-    padding: 2rem;
-    font-size: 0.9rem;
-    opacity: 0.8;
-    color: var(--muted);
-  }
-
-  /* small helper: accent link style */
-  a, .accent{
-    color: var(--accent);
-    text-decoration: none;
-  }
-
-  a:focus, a:hover{ text-decoration: underline; }
-
-  /* ---- minor responsive adjustments ---- */
-  @media (max-width: 520px){
-    header h1{ font-size: 1.4rem; }
-    .diti-image{ width: 110px; height: 110px; }
-    summary{ gap: 8px; padding: 12px; }
-  }
+  /* Optional: collapsible animation (simple) */
+  .content-inner{ overflow:hidden; }
 </style>
+
 
 </head>
 
