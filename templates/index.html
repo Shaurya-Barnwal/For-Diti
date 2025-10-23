@@ -258,6 +258,93 @@
     .content-inner {
       overflow: hidden;
     }
+
+    /* === Meme Videos Section (Portrait-friendly) === */
+    .meme-videos {
+      margin-top: 2.5rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+    }
+
+    .meme-videos h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+      text-align: center;
+    }
+
+    .meme-videos p {
+      opacity: 0.9;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .video-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .video-card {
+      background: var(--card);
+      border-radius: 14px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      max-width: 360px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .video-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
+    }
+
+    /* Portrait-friendly sizing */
+    .video-card video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      /* keeps portrait format proportional */
+      object-fit: cover;
+      /* fills card nicely without stretching */
+      background: #000;
+      border-radius: 14px 14px 0 0;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Optional: in case you also have landscape videos later */
+    @media (min-aspect-ratio: 4/3) {
+      .video-card video {
+        aspect-ratio: 16 / 9;
+      }
+    }
+
+    .video-card .caption {
+      font-size: 0.95rem;
+      padding: 0.75rem 1rem;
+      color: #e6eef6;
+      opacity: 0.85;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    @media (max-width: 768px) {
+      .video-gallery {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .video-card {
+        width: 90%;
+        max-width: 400px;
+      }
+    }
   </style>
 
 
@@ -609,6 +696,39 @@
       <img src="{{ url_for('static', filename='VC9.png') }}" alt="VC">
     </div>
     <p class="4">Many more to be added...</p>
+  </section>
+
+  <section class="meme-videos">
+    <h2>Videos🎬</h2>
+    <p>Some of the masterpieces I made just for you😌❤️</p>
+
+    <div class="video-gallery">
+      <div class="video-card">
+        <video controls>
+          <source src="static/Busy.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p class="caption">She's so busy these days😔</p>
+        <p>!This video is only meant to serve comedic purposes and does not reflect the creator's actual thoughts!
+          (don't get mad at me please)</p>
+      </div>
+
+      <div class="video-card">
+        <video controls>
+          <source src="static/New-BSF.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p class="caption">New best friend👁️👁️???????</p>
+      </div>
+
+      <div class="video-card">
+        <video controls>
+          <source src="static/Damn-you.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p class="caption">POV: I can't get you off my mind😭</p>
+      </div>
+    </div>
   </section>
 
   <section class="memory" id="diti-diaries">
@@ -1010,13 +1130,16 @@
               forever. I did talk to mum about it and she did explain that it's ok and Diti must have had a reason.
               Obviously I know that. But yeah I feel what I feel. Hopefully I'll be over it at some point. We're gonna
               have quite the performance this year. We have Yuvi bhaiya as our drummer this time. You probably remember
-              him. He's also the bhaiya we called in for our farewell performance in 11th. He's super good. And we have a bassist
+              him. He's also the bhaiya we called in for our farewell performance in 11th. He's super good. And we have
+              a bassist
               this time too. We have practice tomorrow at a jampad 9am. Will be fun. I wish I could show you the songs
               that I'll be singing atleast or take your opinions. Hopefully later.</p>
             <p>I'm having trouble sleeping today for some reason so I came back here. Things I'm doing these days god.
               I'm literally 2 steps away from going schizo. You know when I told mum that how you won't be coming, I
-              also said how you're busy and how I talked to you yesterday after a week. She did comfort me on that so yeah I felt good after. 
-              She said it's ok you'll get chances abhi just enjoy what you're doing with the current people. So yeah I'll do that.
+              also said how you're busy and how I talked to you yesterday after a week. She did comfort me on that so
+              yeah I felt good after.
+              She said it's ok you'll get chances abhi just enjoy what you're doing with the current people. So yeah
+              I'll do that.
             </p>
             <p>In other news I had a dream of you like 3 days ago. You had a little sister who almost drowned but I
               saved her😌. It was full on movie type shit lol. I even met aunty after that. But I am pretty sure at some
@@ -1105,7 +1228,7 @@
           </article>
         </div>
       </details>
-      
+
       <details>
         <summary>
           <span class="date">26th September 2025</span>
@@ -1153,18 +1276,25 @@
   <section class="memory" id="diti-diaries">
     <h2>The Stubborn Devotee</h2>
     <p>....</p>
-    <p>Yeah yeah I said the entry above would be my last. But I think making you read all this has to be a punishment in itself. 
-      And I've already taken out my anger. Now you may wonder how did I do that? Well do you remember me telling you 
-      that I wrote a letter for you once? That too handwritten? Well I actually wrote two. And then do you remember asking 
-      me about an image on my whatsapp status of few random pages with writings on them horribly torn? You may connect the 
-      dots... I was like really angry that day what can I say hehe. So yeah those heartfelt letters that I wrote you? You're 
+    <p>Yeah yeah I said the entry above would be my last. But I think making you read all this has to be a punishment in
+      itself.
+      And I've already taken out my anger. Now you may wonder how did I do that? Well do you remember me telling you
+      that I wrote a letter for you once? That too handwritten? Well I actually wrote two. And then do you remember
+      asking
+      me about an image on my whatsapp status of few random pages with writings on them horribly torn? You may connect
+      the
+      dots... I was like really angry that day what can I say hehe. So yeah those heartfelt letters that I wrote you?
+      You're
       never getting to see em. Gone with the wind.</p>
     <p>I honestly can't not have something like this. It's impossible for me to have a thought in my brain that I felt
       like sharing with you, and then just supress it and move on with my day. If I am missing you then I wanna scream
       to the world that I AM MISSING DITI. But apni mata shree ko dhyaan mein rakhte hue main dusri cheezon se hi kaam
-      chala lunga🙏🥷. Also this time I won't do an entry everyday but only on days that I actually have something to say 
-      or really feel like talking to you. Cause honestly forcing an entry everyday makes it lose the meaning I intend it to have. 
-      Also I too will be busy with college applications now so I doubt I'll get a chance to write something everyday.</p>
+      chala lunga🙏🥷. Also this time I won't do an entry everyday but only on days that I actually have something to
+      say
+      or really feel like talking to you. Cause honestly forcing an entry everyday makes it lose the meaning I intend it
+      to have.
+      Also I too will be busy with college applications now so I doubt I'll get a chance to write something everyday.
+    </p>
     <div class="diary-entries">
       <details>
         <summary>
@@ -1207,7 +1337,7 @@
           </article>
         </div>
       </details>
-      
+
       <details>
         <summary>
           <span class="date">10th October 2025</span>
@@ -1219,18 +1349,24 @@
             <p>You haven't been texting me cause not only you couldn't get a hold of your phone recently as it's been
               mostly with your mum or brother, you also have been busy. And you know what I have been okay with that. I
               mean yeah you take your work more seriously than me and so unlike me you are probably stressing about
-              college apps way more. Totally cool with that. Now over the course of last week I'd see your view on my status
-              on whatsapp or stories on instagram. I made the mistake of assuming its you before but now I assume it's 
+              college apps way more. Totally cool with that. Now over the course of last week I'd see your view on my
+              status
+              on whatsapp or stories on instagram. I made the mistake of assuming its you before but now I assume it's
               your mum or moksh whatever. Or maybe you saw whatsapp on your PC and you can't like it from there and
               couldn't text about it either just yet. Also totally fine. But now I am seeing your like on Taylor swift's
               post. A post made only 17 hours ago. So not only you recently got a hold of your phone, you were also free
-              enough to scroll instagram. And so you choose to do that instead of messaging me. You wouldn't like my posts before cause
+              enough to scroll instagram. And so you choose to do that instead of messaging me. You wouldn't like my
+              posts before cause
               you were worried that your other friends might get mad that you're liking my posts but not replying to
-              them. And then you'll do the same thing when it comes to me. You see how this can annoy me a tinzy bit right? 
-              We used to be at a point where we'd talk everyday. At least greet each other once in some way. 
-              But well now here we are with me just mindlessly waiting for you to text me while I'm holding off genuine important
-              things that I'd need your help with. And I just know at the end of this I'm gonna be the one who'll be wrong and
-              end up feeling bad. Most probably chances are by the time you read this I'm not even mad at you anymore. You said if
+              them. And then you'll do the same thing when it comes to me. You see how this can annoy me a tinzy bit
+              right?
+              We used to be at a point where we'd talk everyday. At least greet each other once in some way.
+              But well now here we are with me just mindlessly waiting for you to text me while I'm holding off genuine
+              important
+              things that I'd need your help with. And I just know at the end of this I'm gonna be the one who'll be
+              wrong and
+              end up feeling bad. Most probably chances are by the time you read this I'm not even mad at you anymore.
+              You said if
               I am mad at you or I have a problem with you then it's you I should take up with right? Well look at this
               beauty right here:</p>
             <p>"don't text till i text</p>
@@ -1239,22 +1375,24 @@
               still. I will do exactly as you said. I won't go down and talk to Gaurika or Vaibhavi about this. I'll cry
               alone for now cause that's all I can do.</p>
             <p>Ok this is me a few hours later after I punched a marble wall too hard. Twice... Not my brightest move
-              honestly. I still feel like crying but now I have more than one reason. It's actually a little red I hope it doesn't go
+              honestly. I still feel like crying but now I have more than one reason. It's actually a little red I hope
+              it doesn't go
               sore.</p>
             <p>
-              Now here's my post anger clarity analysis. The reason you haven't reacted to my posts is because Moksh 
-              (or aunty but until you clarify I'll be assuming it's him using the app going forward in my example) uses 
-              your instagram too. So what happens is he sees my stories or posts but doesn't react to em. And then when 
-              you open the app, the app thinks you've already seen the posts and so they don't appear on your FY page. 
-              And so you end up liking other stuff while my posts go unnoticed. That's the only possible explanation. 
-              Cause now I think about it you wouldn't intentionally actively ignore me like that. So yeah it was probably that.
+              Now here's my post anger clarity analysis. The reason you haven't reacted to my posts is because Moksh
+              (or aunty but until you clarify I'll be assuming it's him using the app going forward in my example) uses
+              your instagram too. So what happens is he sees my stories or posts but doesn't react to em. And then when
+              you open the app, the app thinks you've already seen the posts and so they don't appear on your FY page.
+              And so you end up liking other stuff while my posts go unnoticed. That's the only possible explanation.
+              Cause now I think about it you wouldn't intentionally actively ignore me like that. So yeah it was
+              probably that.
             </p>
             <p>Good nini❤️</p>
             <p class="hearts">❤️</p>
           </article>
         </div>
       </details>
-      
+
       <details>
         <summary>
           <span class="date">12th October 2025</span>
@@ -1289,7 +1427,7 @@
           </article>
         </div>
       </details>
-      
+
       <details>
         <summary>
           <span class="date">13th October 2025</span>
@@ -1307,7 +1445,7 @@
           </article>
         </div>
       </details>
-      
+
       <details>
         <summary>
           <span class="date">14th October 2025</span>
@@ -1317,14 +1455,16 @@
         <div class="entry-body">
           <article class="entry">
             <p>
-             ️ I saw the same thing again. Your like on taylor swift's posts which were posted only hours ago. And the
+              ️ I saw the same thing again. Your like on taylor swift's posts which were posted only hours ago. And the
               interesting part is even I sent you stuff on instagram. But for some reason you haven't opened that chat
               in a month. It's REALLY getting on my nerves at this point. Whatever it's stupid.
             </p>
             <p>
-              Anyway I went to Akshardham today from the metro by myself. I mean not didn't go to Akshardham but more like
+              Anyway I went to Akshardham today from the metro by myself. I mean not didn't go to Akshardham but more
+              like
               the metro station only as the Aadhaar Seva Kendra is there. I had to get my biometrics and phone number
-              updated. So I did. I didn't expect to be able to do it myself but yeah it was farely easy. I like these little
+              updated. So I did. I didn't expect to be able to do it myself but yeah it was farely easy. I like these
+              little
               alone adventures. Makes me feel all grown up and gives me a sense of responsibility.
             </p>
             <p>Good nini❤️</p>
@@ -1332,7 +1472,7 @@
           </article>
         </div>
       </details>
-      
+
       <details>
         <summary>
           <span class="date">18th October 2025</span>
@@ -1342,10 +1482,14 @@
         <div class="entry-body">
           <article class="entry">
             <p>
-             ️ I'm really sick today. My eyes hurt from the vix I self applied on my head. Thought I could be brave but it's 
-              biting me back now. My nostrils hurt so much and the headache has kept me in a bad mood throughout the whole day. 
-              Ughhhh why can't you message me you stupid pumpkin. I need you so bad today. I even had to go to school today in 
-              this state and even that ended up being useless as I couldn't get what I wanted. Tomorrow is diwali. Choti diwali 
+              ️ I'm really sick today. My eyes hurt from the vix I self applied on my head. Thought I could be brave but
+              it's
+              biting me back now. My nostrils hurt so much and the headache has kept me in a bad mood throughout the
+              whole day.
+              Ughhhh why can't you message me you stupid pumpkin. I need you so bad today. I even had to go to school
+              today in
+              this state and even that ended up being useless as I couldn't get what I wanted. Tomorrow is diwali. Choti
+              diwali
               to be specific. If you love me even the tiniest bit then I hope you wish me tomorrow. Please.
             </p>
             <p>Good nini❤️</p>
@@ -1353,7 +1497,7 @@
           </article>
         </div>
       </details>
-      
+
       <details>
         <summary>
           <span class="date">22th October 2025</span>
@@ -1363,13 +1507,19 @@
         <div class="entry-body">
           <article class="entry">
             <p>
-              Really disappointed in you today. Cause what the figgity freak is "Good night😴"? And that too with no hearts? 
-              I mean I don't know if you noticed but it took less than 2 seconds for your message to go to seens when 
-              you texted me today. Any guesses why? It was cause I was already reading our old texts. Then you texted me like that 
-              and I was like God is real🙏. But yeah this actually breaks my heart. Like why even use that emoji? That was 
-              literally me an year ago to you trying to be nonchalant in our night wishes. Our relationship has been pushed 
-              back that far😭? I miss the hearts from you god dammit. It's one of the few things worth living😭. Anyhow see 
-              ya soon as you said ig. I legit can't even sleep now after talking to you my sleep's all gone lol. And I'm hungry too.
+              Really disappointed in you today. Cause what the figgity freak is "Good night😴"? And that too with no
+              hearts?
+              I mean I don't know if you noticed but it took less than 2 seconds for your message to go to seens when
+              you texted me today. Any guesses why? It was cause I was already reading our old texts. Then you texted me
+              like that
+              and I was like God is real🙏. But yeah this actually breaks my heart. Like why even use that emoji? That
+              was
+              literally me an year ago to you trying to be nonchalant in our night wishes. Our relationship has been
+              pushed
+              back that far😭? I miss the hearts from you god dammit. It's one of the few things worth living😭. Anyhow
+              see
+              ya soon as you said ig. I legit can't even sleep now after talking to you my sleep's all gone lol. And I'm
+              hungry too.
               I'll just do something productive now ig.
             </p>
             <p>Good nini❤️</p>
@@ -1377,7 +1527,7 @@
           </article>
         </div>
       </details>
-      
+
       <details>
         <summary>
           <span class="date">23th October 2025</span>
@@ -1387,11 +1537,16 @@
         <div class="entry-body">
           <article class="entry">
             <p>
-              I feel like crying today. And I miss you so much again. When will things go back to normal Diti? I can't keep pretending to 
-              be okay like this. I will be going to my Nani's place tomorrow by train. Will stay there for a good while and I think we'll 
-              be back after 10 days now. It's been an year since I went last time. I still remember how we used to talk back then. How quickly 
-              time flies. Please come back to me diti. I don't even know what that sentence means but just come back. I wonder how you'll react
-              when you finally read this. When you see that I'm still holding on to the "good nini" thing. Will you call me obsessively crazy 
+              I feel like crying today. And I miss you so much again. When will things go back to normal Diti? I can't
+              keep pretending to
+              be okay like this. I will be going to my Nani's place tomorrow by train. Will stay there for a good while
+              and I think we'll
+              be back after 10 days now. It's been an year since I went last time. I still remember how we used to talk
+              back then. How quickly
+              time flies. Please come back to me diti. I don't even know what that sentence means but just come back. I
+              wonder how you'll react
+              when you finally read this. When you see that I'm still holding on to the "good nini" thing. Will you call
+              me obsessively crazy
               and find all this annoying? I hope not. Please don't do that.
             </p>
             <p>Good nini❤️</p>
