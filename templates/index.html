@@ -259,7 +259,7 @@
       overflow: hidden;
     }
 
-    /* === Meme Videos Section (Portrait + Hover Play) === */
+    /* === Meme Videos Section (Portrait + Hover Loop) === */
     .meme-videos {
       margin-top: 2.5rem;
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
@@ -279,14 +279,6 @@
       opacity: 0.9;
       line-height: 1.5;
       text-align: center;
-    }
-
-    .video-card .disclaimer {
-      font-size: 0.8rem;
-      opacity: 0.7;
-      margin: 0.5rem 1rem 1rem;
-      color: #f2b6b6;
-      line-height: 1.4;
     }
 
     .video-gallery {
@@ -314,12 +306,12 @@
       box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
     }
 
-    /* Viewport wrapper keeps portrait videos clean and consistent */
+    /* Portrait video container */
     .video-viewport {
       width: 100%;
       position: relative;
       padding-top: 177.78%;
-      /* portrait 9:16 */
+      /* 9:16 ratio */
       overflow: hidden;
       border-radius: 14px 14px 0 0;
       background: #000;
@@ -337,16 +329,12 @@
       transition: filter 0.3s ease;
     }
 
-    /* Dim slightly when paused, brighten while playing */
-    .video-viewport video:not([data-playing="true"]) {
-      filter: brightness(0.7);
+    /* Landscape fallback */
+    .video-viewport.landscape {
+      padding-top: 56.25%;
+      /* 16:9 */
     }
 
-    .video-viewport video[data-playing="true"] {
-      filter: brightness(1);
-    }
-
-    /* caption text */
     .video-card .caption {
       font-size: 0.95rem;
       padding: 0.75rem 1rem;
@@ -356,10 +344,12 @@
       background: rgba(255, 255, 255, 0.02);
     }
 
-    /* Optional landscape fallback for very wide clips */
-    .video-viewport.landscape {
-      padding-top: 56.25%;
-      /* 16:9 */
+    .video-card .disclaimer {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin: 0.5rem 1rem 1rem;
+      color: #f2b6b6;
+      line-height: 1.4;
     }
 
     @media (max-width: 768px) {
@@ -735,7 +725,7 @@
       <!-- Video 1 -->
       <div class="video-card">
         <div class="video-viewport">
-          <video preload="metadata">
+          <video preload="metadata" loop>
             <source src="static/Busy.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -743,15 +733,14 @@
         <p class="caption">She's so busy these days 😔</p>
         <p class="disclaimer">
           This video is only meant to serve comedic purposes and does not reflect the creator's actual thoughts.<br>
-          (Don't get mad at me please 😅)<br>
-          Also see the entry on 10th october for more context.
+          (Don't get mad at me please 😅)
         </p>
       </div>
 
       <!-- Video 2 -->
       <div class="video-card">
         <div class="video-viewport">
-          <video preload="metadata">
+          <video preload="metadata" loop>
             <source src="static/New-BSF.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -762,7 +751,7 @@
       <!-- Video 3 -->
       <div class="video-card">
         <div class="video-viewport">
-          <video preload="metadata">
+          <video preload="metadata" loop>
             <source src="static/Damn-you.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -772,6 +761,7 @@
 
     </div>
   </section>
+
 
 
   <section class="memory" id="diti-diaries">
@@ -1629,62 +1619,25 @@
         const video = vp.querySelector("video");
         if (!video) return;
 
-        // remember if user explicitly unmuted (so we don't auto-mute them again)
-        let userUnmuted = false;
-
-        // detect actual orientation (portrait vs landscape)
+        // Detect orientation (portrait vs landscape)
         video.addEventListener("loadedmetadata", () => {
           const { videoWidth: w, videoHeight: h } = video;
           if (w > h) vp.classList.add("landscape");
-          // set dataset playing false initially
-          video.dataset.playing = "false";
         });
 
-        // If user toggles volume via native controls, detect that and respect it
-        video.addEventListener("volumechange", () => {
-          // if they unmuted manually, remember it
-          if (!video.muted) userUnmuted = true;
-        });
-
-        // Hover to play (muted unless user previously unmuted)
+        // Hover to play (with sound)
         vp.addEventListener("mouseenter", () => {
-          if (!userUnmuted) video.muted = true;
-          // try to play — some browsers may still block, but hover is an interaction
           video.play().catch(() => { });
-          video.dataset.playing = "true";
         });
 
+        // Pause when hover ends
         vp.addEventListener("mouseleave", () => {
           video.pause();
-          video.dataset.playing = "false";
-        });
-
-        // Click toggles mute/unmute (and plays if needed)
-        // This also supports tapping on mobile to unmute (tap to toggle)
-        video.addEventListener("click", (e) => {
-          // Toggle muted state
-          video.muted = !video.muted;
-          // If user unmuted, remember preference so hover won't re-mute
-          userUnmuted = !video.muted;
-
-          // Make sure video is playing when they unmute
-          if (!video.muted) {
-            video.play().catch(() => { });
-            video.dataset.playing = "true";
-          }
-        });
-
-        // Optional: keyboard accessibility — space toggles play/pause
-        video.addEventListener("keydown", (e) => {
-          if (e.code === "Space") {
-            e.preventDefault();
-            if (video.paused) video.play().catch(() => { });
-            else video.pause();
-          }
         });
       });
     });
   </script>
+
 
 
 </body>
