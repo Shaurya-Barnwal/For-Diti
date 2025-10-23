@@ -1622,33 +1622,70 @@
   {% endif %}
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const viewports = document.querySelectorAll(".video-viewport");
+document.addEventListener("DOMContentLoaded", () => {
+  const viewports = document.querySelectorAll(".video-viewport");
 
-      viewports.forEach(vp => {
-        const video = vp.querySelector("video");
-        if (!video) return;
+  viewports.forEach(vp => {
+    const video = vp.querySelector("video");
+    if (!video) return;
 
-        // Detect actual orientation (portrait vs landscape)
-        video.addEventListener("loadedmetadata", () => {
-          const { videoWidth: w, videoHeight: h } = video;
-          if (w > h) vp.classList.add("landscape");
-        });
+    // remember if user explicitly unmuted (so we don't auto-mute them again)
+    let userUnmuted = false;
 
-        // Hover-to-play behavior
-        vp.addEventListener("mouseenter", () => {
-          video.muted = true;
-          video.play().catch(() => { });
-          video.dataset.playing = "true";
-        });
-
-        vp.addEventListener("mouseleave", () => {
-          video.pause();
-          video.dataset.playing = "false";
-        });
-      });
+    // detect actual orientation (portrait vs landscape)
+    video.addEventListener("loadedmetadata", () => {
+      const { videoWidth: w, videoHeight: h } = video;
+      if (w > h) vp.classList.add("landscape");
+      // set dataset playing false initially
+      video.dataset.playing = "false";
     });
-  </script>
+
+    // If user toggles volume via native controls, detect that and respect it
+    video.addEventListener("volumechange", () => {
+      // if they unmuted manually, remember it
+      if (!video.muted) userUnmuted = true;
+    });
+
+    // Hover to play (muted unless user previously unmuted)
+    vp.addEventListener("mouseenter", () => {
+      if (!userUnmuted) video.muted = true;
+      // try to play — some browsers may still block, but hover is an interaction
+      video.play().catch(()=>{});
+      video.dataset.playing = "true";
+    });
+
+    vp.addEventListener("mouseleave", () => {
+      video.pause();
+      video.dataset.playing = "false";
+    });
+
+    // Click toggles mute/unmute (and plays if needed)
+    // This also supports tapping on mobile to unmute (tap to toggle)
+    video.addEventListener("click", (e) => {
+      // Toggle muted state
+      video.muted = !video.muted;
+      // If user unmuted, remember preference so hover won't re-mute
+      userUnmuted = !video.muted;
+
+      // Make sure video is playing when they unmute
+      if (!video.muted) {
+        video.play().catch(()=>{});
+        video.dataset.playing = "true";
+      }
+    });
+
+    // Optional: keyboard accessibility — space toggles play/pause
+    video.addEventListener("keydown", (e) => {
+      if (e.code === "Space") {
+        e.preventDefault();
+        if (video.paused) video.play().catch(()=>{});
+        else video.pause();
+      }
+    });
+  });
+});
+</script>
+
 
 </body>
 
