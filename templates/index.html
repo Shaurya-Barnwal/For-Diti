@@ -365,85 +365,103 @@
     }
 
     /* thumbnail holder / play overlay for YouTube short fallback */
-.yt-viewport {
-  position: relative;
-  width: 100%;
-  padding-top: 177.78%; /* 9:16 portrait by default */
-  background:#000;
-  overflow:hidden;
-  border-radius:14px 14px 0 0;
-}
+    .yt-viewport {
+      position: relative;
+      width: 100%;
+      padding-top: 177.78%;
+      /* 9:16 portrait by default */
+      background: #000;
+      overflow: hidden;
+      border-radius: 14px 14px 0 0;
+    }
 
-/* thumbnail image we will inject */
-.yt-thumb {
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-  filter: brightness(0.85);
-  transition: filter .22s ease;
-}
+    /* thumbnail image we will inject */
+    .yt-thumb {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.85);
+      transition: filter .22s ease;
+    }
 
-/* play button in center */
-.yt-play {
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  width:68px;
-  height:68px;
-  border-radius:50%;
-  background: rgba(0,0,0,0.55);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  box-shadow:0 10px 30px rgba(0,0,0,0.5);
-  transition: transform .14s ease, background .14s ease;
-  border: 2px solid rgba(255,255,255,0.06);
-}
+    /* play button in center */
+    .yt-play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transition: transform .14s ease, background .14s ease;
+      border: 2px solid rgba(255, 255, 255, 0.06);
+    }
 
-.yt-play:hover { transform: translate(-50%, -50%) scale(1.06); background: rgba(0,0,0,0.65); }
+    .yt-play:hover {
+      transform: translate(-50%, -50%) scale(1.06);
+      background: rgba(0, 0, 0, 0.65);
+    }
 
-.yt-play::after{
-  content: "";
-  display:block;
-  width:0;
-  height:0;
-  border-left: 18px solid var(--accent);
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
-}
+    .yt-play::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 18px solid var(--accent);
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+    }
 
-/* when iframe is injected, hide thumbnail and button */
-.yt-viewport.playing .yt-thumb,
-.yt-viewport.playing .yt-play { opacity: 0; pointer-events: none; transform: none; }
+    /* when iframe is injected, hide thumbnail and button */
+    .yt-viewport.playing .yt-thumb,
+    .yt-viewport.playing .yt-play {
+      opacity: 0;
+      pointer-events: none;
+      transform: none;
+    }
 
-/* fallback link visible if no iframe created */
-.yt-fallback {
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#fff;
-  text-decoration:none;
-  font-weight:600;
-  background:rgba(0,0,0,0.5);
-  opacity:0;
-  pointer-events:none;
-}
+    /* fallback link visible if no iframe created */
+    .yt-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      pointer-events: none;
+    }
 
-.yt-viewport.no-iframe .yt-fallback { opacity:1; pointer-events:auto; }
+    .yt-viewport.no-iframe .yt-fallback {
+      opacity: 1;
+      pointer-events: auto;
+    }
 
-/* iframe fill */
-.yt-viewport iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+    /* iframe fill */
+    .yt-viewport iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
 
-/* landscape fallback (if you set it) */
-.yt-viewport.landscape { padding-top:56.25%; }
-
+    /* landscape fallback (if you set it) */
+    .yt-viewport.landscape {
+      padding-top: 56.25%;
+    }
   </style>
 
 
@@ -844,102 +862,102 @@
   </section>
 
   <section class="reels-section">
-  <h2>Shorts (Not Shown Yet) 🎞️</h2>
-  <p>Little collection of stuff I haven’t shown you yet.</p>
+    <h2>Shorts (Not Shown Yet) 🎞️</h2>
+    <p>Little collection of stuff I haven’t shown you yet.</p>
 
-  <div class="reels-grid">
-    <!-- 1 -->
-    <div class="reel-card">
-      <div class="reel-viewport yt-viewport" data-video-id="c1DgS8Skdv0">
-        <a class="yt-fallback" href="https://www.youtube.com/shorts/c1DgS8Skdv0" target="_blank" rel="noopener">
-          Open on YouTube (fallback)
-        </a>
+    <div class="reels-grid">
+      <!-- 1 -->
+      <div class="reel-card">
+        <div class="reel-viewport yt-viewport" data-video-id="c1DgS8Skdv0">
+          <a class="yt-fallback" href="https://www.youtube.com/shorts/c1DgS8Skdv0" target="_blank" rel="noopener">
+            Open on YouTube (fallback)
+          </a>
+        </div>
+        <p class="caption">Ladies being nerds is the hottest thing ever.</p>
       </div>
-      <p class="caption">Ladies being nerds is the hottest thing ever.</p>
-    </div>
 
-    <!-- 2 -->
-    <div class="reel-card">
-      <div class="reel-viewport yt-viewport" data-video-id="qNrZ817SFi0">
-        <a class="yt-fallback" href="https://www.youtube.com/shorts/qNrZ817SFi0" target="_blank" rel="noopener">
-          Open on YouTube (fallback)
-        </a>
+      <!-- 2 -->
+      <div class="reel-card">
+        <div class="reel-viewport yt-viewport" data-video-id="qNrZ817SFi0">
+          <a class="yt-fallback" href="https://www.youtube.com/shorts/qNrZ817SFi0" target="_blank" rel="noopener">
+            Open on YouTube (fallback)
+          </a>
+        </div>
+        <p class="caption">He's too funny</p>
       </div>
-      <p class="caption">He's too funny</p>
-    </div>
 
-    <!-- 3 -->
-    <div class="reel-card">
-      <div class="reel-viewport yt-viewport" data-video-id="9ZYxVd38rBw">
-        <a class="yt-fallback" href="https://www.youtube.com/shorts/9ZYxVd38rBw" target="_blank" rel="noopener">
-          Open on YouTube (fallback)
-        </a>
+      <!-- 3 -->
+      <div class="reel-card">
+        <div class="reel-viewport yt-viewport" data-video-id="9ZYxVd38rBw">
+          <a class="yt-fallback" href="https://www.youtube.com/shorts/9ZYxVd38rBw" target="_blank" rel="noopener">
+            Open on YouTube (fallback)
+          </a>
+        </div>
+        <p class="caption">This looked scarily exciting ngl.</p>
       </div>
-      <p class="caption">This looked scarily exciting ngl.</p>
-    </div>
 
-    <!-- 4 -->
-    <div class="reel-card">
-      <div class="reel-viewport yt-viewport" data-video-id="Etuz1D1vpsE">
-        <a class="yt-fallback" href="https://www.youtube.com/shorts/Etuz1D1vpsE" target="_blank" rel="noopener">
-          Open on YouTube (fallback)
-        </a>
+      <!-- 4 -->
+      <div class="reel-card">
+        <div class="reel-viewport yt-viewport" data-video-id="Etuz1D1vpsE">
+          <a class="yt-fallback" href="https://www.youtube.com/shorts/Etuz1D1vpsE" target="_blank" rel="noopener">
+            Open on YouTube (fallback)
+          </a>
+        </div>
+        <p class="caption">I never noticed!</p>
       </div>
-      <p class="caption">I never noticed!</p>
-    </div>
 
-    <!-- 5 -->
-    <div class="reel-card">
-      <div class="reel-viewport yt-viewport" data-video-id="5Skazitq2LA">
-        <a class="yt-fallback" href="https://www.youtube.com/shorts/5Skazitq2LA" target="_blank" rel="noopener">
-          Open on YouTube (fallback)
-        </a>
+      <!-- 5 -->
+      <div class="reel-card">
+        <div class="reel-viewport yt-viewport" data-video-id="5Skazitq2LA">
+          <a class="yt-fallback" href="https://www.youtube.com/shorts/5Skazitq2LA" target="_blank" rel="noopener">
+            Open on YouTube (fallback)
+          </a>
+        </div>
+        <p class="caption">He's so understading😂</p>
       </div>
-      <p class="caption">He's so understading😂</p>
-    </div>
 
-    <!-- 6 -->
-    <div class="reel-card">
-      <div class="reel-viewport yt-viewport" data-video-id="iD1Lji1EoEA">
-        <a class="yt-fallback" href="https://www.youtube.com/shorts/iD1Lji1EoEA" target="_blank" rel="noopener">
-          Open on YouTube (fallback)
-        </a>
+      <!-- 6 -->
+      <div class="reel-card">
+        <div class="reel-viewport yt-viewport" data-video-id="iD1Lji1EoEA">
+          <a class="yt-fallback" href="https://www.youtube.com/shorts/iD1Lji1EoEA" target="_blank" rel="noopener">
+            Open on YouTube (fallback)
+          </a>
+        </div>
+        <p class="caption">Pointing fingers without pointing fingers uhm uhm.</p>
       </div>
-      <p class="caption">Pointing fingers without pointing fingers uhm uhm.</p>
-    </div>
 
-    <!-- 7 -->
-    <div class="reel-card">
-      <div class="reel-viewport yt-viewport" data-video-id="iK8cEaTfbPY">
-        <a class="yt-fallback" href="https://www.youtube.com/shorts/iK8cEaTfbPY" target="_blank" rel="noopener">
-          Open on YouTube (fallback)
-        </a>
+      <!-- 7 -->
+      <div class="reel-card">
+        <div class="reel-viewport yt-viewport" data-video-id="iK8cEaTfbPY">
+          <a class="yt-fallback" href="https://www.youtube.com/shorts/iK8cEaTfbPY" target="_blank" rel="noopener">
+            Open on YouTube (fallback)
+          </a>
+        </div>
+        <p class="caption">Are books better than movies?</p>
       </div>
-      <p class="caption">Are books better than movies?</p>
-    </div>
 
-    <!-- 8 -->
-    <div class="reel-card">
-      <div class="reel-viewport yt-viewport" data-video-id="w0bvvlCQCeU">
-        <a class="yt-fallback" href="https://www.youtube.com/shorts/w0bvvlCQCeU" target="_blank" rel="noopener">
-          Open on YouTube (fallback)
-        </a>
+      <!-- 8 -->
+      <div class="reel-card">
+        <div class="reel-viewport yt-viewport" data-video-id="w0bvvlCQCeU">
+          <a class="yt-fallback" href="https://www.youtube.com/shorts/w0bvvlCQCeU" target="_blank" rel="noopener">
+            Open on YouTube (fallback)
+          </a>
+        </div>
+        <p class="caption">Me and you core literally. And I know for a fact you didn't get the main joke here.</p>
       </div>
-      <p class="caption">Me and you core literally. And I know for a fact you didn't get the main joke here.</p>
-    </div>
 
-    <!-- 9 -->
-    <div class="reel-card">
-      <div class="reel-viewport yt-viewport" data-video-id="hM9Dwb8bchc">
-        <a class="yt-fallback" href="https://www.youtube.com/shorts/hM9Dwb8bchc" target="_blank" rel="noopener">
-          Open on YouTube (fallback)
-        </a>
+      <!-- 9 -->
+      <div class="reel-card">
+        <div class="reel-viewport yt-viewport" data-video-id="hM9Dwb8bchc">
+          <a class="yt-fallback" href="https://www.youtube.com/shorts/hM9Dwb8bchc" target="_blank" rel="noopener">
+            Open on YouTube (fallback)
+          </a>
+        </div>
+        <p class="caption">I have been getting so much Taylor Swift on my feed now and I'm all for it.</p>
       </div>
-      <p class="caption">I have been getting so much Taylor Swift on my feed now and I'm all for it.</p>
-    </div>
 
-  </div>
-</section>
+    </div>
+  </section>
 
 
   <section class="memory" id="diti-diaries">
@@ -1817,87 +1835,87 @@
   </script>
 
   <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const ytViews = document.querySelectorAll('.yt-viewport');
+    document.addEventListener('DOMContentLoaded', () => {
+      const ytViews = document.querySelectorAll('.yt-viewport');
 
-  ytViews.forEach(vp => {
-    const id = vp.dataset.videoId;
-    if (!id) {
-      vp.classList.add('no-iframe'); // show fallback text
-      return;
-    }
-
-    // Use YouTube thumbnail (prefer maxres, fallback to sd)
-    const thumbUrls = [
-      `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`,
-      `https://i.ytimg.com/vi/${id}/sddefault.jpg`,
-      `https://i.ytimg.com/vi/${id}/hqdefault.jpg`
-    ];
-
-    // create thumbnail img element
-    const img = document.createElement('img');
-    img.className = 'yt-thumb';
-    img.alt = 'YouTube thumbnail';
-    img.decoding = 'async';
-
-    // try loading the best thumb first, fallback if 404
-    let idx = 0;
-    function tryLoad() {
-      img.src = thumbUrls[idx];
-      img.onerror = () => {
-        idx++;
-        if (idx < thumbUrls.length) tryLoad();
-        else {
-          // if no thumbnail available, show fallback link
-          vp.classList.add('no-iframe');
+      ytViews.forEach(vp => {
+        const id = vp.dataset.videoId;
+        if (!id) {
+          vp.classList.add('no-iframe'); // show fallback text
+          return;
         }
-      };
-    }
-    tryLoad();
-    vp.appendChild(img);
 
-    // play button overlay
-    const play = document.createElement('button');
-    play.className = 'yt-play';
-    play.title = 'Play on page';
-    vp.appendChild(play);
+        // Use YouTube thumbnail (prefer maxres, fallback to sd)
+        const thumbUrls = [
+          `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`,
+          `https://i.ytimg.com/vi/${id}/sddefault.jpg`,
+          `https://i.ytimg.com/vi/${id}/hqdefault.jpg`
+        ];
 
-    // clicking the play button injects the iframe (user gesture -> sound allowed)
-    const injectIframe = () => {
-      if (vp.classList.contains('playing')) return;
-      vp.classList.remove('no-iframe');
-      vp.classList.add('playing');
+        // create thumbnail img element
+        const img = document.createElement('img');
+        img.className = 'yt-thumb';
+        img.alt = 'YouTube thumbnail';
+        img.decoding = 'async';
 
-      // build iframe src — autoplay=1 so it starts playing; playsinline on mobile
-      const src = `https://www.youtube.com/embed/${id}?autoplay=1&playsinline=1&rel=0&modestbranding=1`;
-      const iframe = document.createElement('iframe');
-      iframe.src = src;
-      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-      iframe.allowFullscreen = true;
+        // try loading the best thumb first, fallback if 404
+        let idx = 0;
+        function tryLoad() {
+          img.src = thumbUrls[idx];
+          img.onerror = () => {
+            idx++;
+            if (idx < thumbUrls.length) tryLoad();
+            else {
+              // if no thumbnail available, show fallback link
+              vp.classList.add('no-iframe');
+            }
+          };
+        }
+        tryLoad();
+        vp.appendChild(img);
 
-      // append iframe
-      vp.appendChild(iframe);
+        // play button overlay
+        const play = document.createElement('button');
+        play.className = 'yt-play';
+        play.title = 'Play on page';
+        vp.appendChild(play);
 
-      // hide the thumb and play button via CSS (class .playing)
-      // (we also removed pointer-events on them)
-    };
+        // clicking the play button injects the iframe (user gesture -> sound allowed)
+        const injectIframe = () => {
+          if (vp.classList.contains('playing')) return;
+          vp.classList.remove('no-iframe');
+          vp.classList.add('playing');
 
-    play.addEventListener('click', injectIframe);
-    img.addEventListener('click', injectIframe);
+          // build iframe src — autoplay=1 so it starts playing; playsinline on mobile
+          const src = `https://www.youtube.com/embed/${id}?autoplay=1&playsinline=1&rel=0&modestbranding=1`;
+          const iframe = document.createElement('iframe');
+          iframe.src = src;
+          iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+          iframe.allowFullscreen = true;
 
-    // OPTIONAL: you can also inject iframe on hover (but autoplay with sound may be blocked)
-    // vp.addEventListener('mouseenter', injectIframe);
+          // append iframe
+          vp.appendChild(iframe);
 
-    // If you want landscape detection, we can attempt to check the thumbnail dimensions:
-    img.addEventListener('load', () => {
-      try {
-        const w = img.naturalWidth, h = img.naturalHeight;
-        if (w && h && w >= h) vp.classList.add('landscape');
-      } catch(e){}
+          // hide the thumb and play button via CSS (class .playing)
+          // (we also removed pointer-events on them)
+        };
+
+        play.addEventListener('click', injectIframe);
+        img.addEventListener('click', injectIframe);
+
+        // OPTIONAL: you can also inject iframe on hover (but autoplay with sound may be blocked)
+        // vp.addEventListener('mouseenter', injectIframe);
+
+        // If you want landscape detection, we can attempt to check the thumbnail dimensions:
+        img.addEventListener('load', () => {
+          try {
+            const w = img.naturalWidth, h = img.naturalHeight;
+            if (w && h && w >= h) vp.classList.add('landscape');
+          } catch (e) { }
+        });
+      });
     });
-  });
-});
-</script>
+  </script>
 
 
 
